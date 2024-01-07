@@ -3,11 +3,11 @@ import Flag from "./Flag";
 import { useCountriesContext } from "../context/CountriesContext";
 
 function Flags() {
-  const { data } = useCountriesContext();
+  const { currentData } = useCountriesContext();
   return (
     <div className="flags">
-      {data
-        ? data.map((flag, index) => (
+      {currentData
+        ? currentData.map((flag, index) => (
             <Flag
               key={index}              
               flagUrl={flag.flags.png}

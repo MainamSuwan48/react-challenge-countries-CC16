@@ -3,6 +3,7 @@ const CountriesContext = createContext();
 
 export default function CountriesContextProvider({ children }) {
   const [data, setData] = useState();
+  const [currentData, setCurrentData] = useState();
   const [currentCountry, setCurrentCountry] = useState({
     country: "Thailand",
     capital: "Bangkok",
@@ -16,9 +17,10 @@ export default function CountriesContextProvider({ children }) {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
+        setData(data)
+        setCurrentData(data);
       })
-    //   .then(() => getWeatherData())
+      .then(() => getWeatherData())
       .catch((err) => console.log("Error: " + err));
   };
 
@@ -37,7 +39,7 @@ export default function CountriesContextProvider({ children }) {
     <CountriesContext.Provider
       value={{
         data,
-        setData,
+        setData,currentData,setCurrentData,
         currentCountry,
         setCurrentCountry,
         weatherData,
