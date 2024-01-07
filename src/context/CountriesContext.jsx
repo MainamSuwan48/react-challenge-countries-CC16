@@ -3,6 +3,7 @@ const CountriesContext = createContext();
 
 export default function CountriesContextProvider({ children }) {
   const [data, setData] = useState();
+  const [weatherData, setWeatherData] = useState();
   const getAllCountriesData = () => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
@@ -10,13 +11,29 @@ export default function CountriesContextProvider({ children }) {
         setData(data);
       })
       .catch((err) => console.log("Error: " + err));
+
+    
+  };
+
+  const getWeatherData = () => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?appid=bf62be47646565c8d9b9644cd00be372&q=bangkok`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        setWeatherData(data);
+      })
+      .catch((err) => console.log("Error: " + err));
+
+    
   };
   return (
-    <CountriesContext.Provider value={{ data, setData, getAllCountriesData }}>
+    <CountriesContext.Provider value={{ data, setData, getAllCountriesData,weatherData,setWeatherData,getWeatherData }}>
       {children}
     </CountriesContext.Provider>
   );
 }
+
+
 
 //custom hooks
 export const useCountriesContext = () => useContext(CountriesContext);

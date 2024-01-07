@@ -6,7 +6,7 @@ function Flags() {
 const {data} = useCountriesContext()
   return (
     <div className='flags'>        
-        {data?data.map((flag,index) => (<Flag key={index} flagUrl={flag.flags.png}/>)):null}
+        {data?data.map((flag,index) => (<Flag key={index} flagUrl={flag.flags.png} name={flag.name.common}/>)):null}
     </div>
   )
 }

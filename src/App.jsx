@@ -5,7 +5,10 @@ import { useCountriesContext } from "./context/CountriesContext";
 function App() {
   const {data,getAllCountriesData} = useCountriesContext();
   useEffect(() => {
-    getAllCountriesData();
+    setTimeout(() => {
+      getAllCountriesData()
+    }, 500);
+    ;
   }, []);
 
   return (
