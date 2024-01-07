@@ -10,9 +10,11 @@ function App() {
 
   return (
     <div className="app">
+    <p className="bigtext">{data?"data is here":"data is not here"}</p>
       <Search />
       <Main />
-      <button onClick={() => console.log(data)}>logCountry</button>
+      <button onClick={() => {console.log(data);
+        console.log(data[0].name.common)}}>logCountry</button>
     </div>
   );
 }
