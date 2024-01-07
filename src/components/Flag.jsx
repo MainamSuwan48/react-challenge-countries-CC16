@@ -5,9 +5,7 @@ function Flag({flagUrl}) {
   const {data} = useCountriesContext()
   return (
     <div className='flag'>
-      <img src={data?
-       (data[0].flags.png):null
-        }></img>
+      <img src={flagUrl}></img>
     </div>
   )
 }

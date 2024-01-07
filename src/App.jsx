@@ -9,8 +9,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-    <p className="bigtext">{data?"data is here":"data is not here"}</p>
+    <div className="app">    
       <Search />
       <Main />
       <button onClick={() => {console.log(data);

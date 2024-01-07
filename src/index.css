@@ -118,14 +118,20 @@ margin: 0rem 1rem;
 
 .main{
 display: flex;
+
 }
 
 .flags {
   width: 50%;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll
 }
 
 .flag > img{
   width: 100px;
+  
 }
 
 .info {
