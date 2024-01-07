@@ -2,7 +2,7 @@ import React from 'react'
 
 function CountryInfo() {
   return (
-    <div className='countryInfo'>
+    <div className='country-info'>
         <h1>Country Name</h1>
         <p>Capital :</p>
         <p>Population :</p>

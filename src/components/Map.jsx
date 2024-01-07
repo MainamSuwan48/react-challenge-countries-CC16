@@ -1,8 +1,13 @@
 import React from 'react'
+import mapTest from '../assets/map-test.png'
+
+
 
 function Map() {
   return (
-    <div>Map</div>
+    <div className='map'>
+        <img src={mapTest}/>
+    </div>
   )
 }
 

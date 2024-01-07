@@ -1,8 +1,11 @@
 import React from 'react'
+import Flag from './Flag'
 
 function Flags() {
   return (
-    <div className='flags'>Flags</div>
+    <div className='flags'>
+        <Flag/>
+    </div>
   )
 }
 

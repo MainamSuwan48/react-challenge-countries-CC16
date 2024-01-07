@@ -1,10 +1,13 @@
 import { useState } from "react";
+import Search from "./components/Search";
+import Main from "./components/Main";
 function App() {
   const [data, setData] = useState({});
 
   return (
     <div className="app">
-      <h1>Hi i'm here</h1>
+      <Search/>
+      <Main/>
     </div>
   );
 }
