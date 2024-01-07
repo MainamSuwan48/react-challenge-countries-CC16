@@ -3,7 +3,7 @@ import Search from "./components/Search";
 import Main from "./components/Main";
 import { useCountriesContext } from "./context/CountriesContext";
 function App() {
-  const {data,getAllCountriesData} = useCountriesContext();
+  const {data,getAllCountriesData,weatherData} = useCountriesContext();
   useEffect(() => {
     setTimeout(() => {
       getAllCountriesData()
@@ -16,7 +16,8 @@ function App() {
       <Search />
       <Main />
       <button onClick={() => {console.log(data);
-        console.log(data[0].name.common)}}>logCountry</button>
+        console.log(data[0].name.common);
+        console.log(weatherData.weather[0].main)}}>logCountry</button>
     </div>
   );
 }

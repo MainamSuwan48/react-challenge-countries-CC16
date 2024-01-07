@@ -3,6 +3,14 @@ const CountriesContext = createContext();
 
 export default function CountriesContextProvider({ children }) {
   const [data, setData] = useState();
+  const [currentCountry, setCurrentCountry] = useState({
+    country: "Thailand",
+    capital: "Bangkok",
+    populations: "69799978",
+    currency: "THB",
+    continent: "Asia",
+  });
+
   const [weatherData, setWeatherData] = useState();
   const getAllCountriesData = () => {
     fetch("https://restcountries.com/v3.1/all")
@@ -10,30 +18,40 @@ export default function CountriesContextProvider({ children }) {
       .then((data) => {
         setData(data);
       })
+    //   .then(() => getWeatherData())
       .catch((err) => console.log("Error: " + err));
-
-    
   };
 
-  const getWeatherData = () => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?appid=bf62be47646565c8d9b9644cd00be372&q=bangkok`)
+  const getWeatherData = (city = "bangkok") => {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?appid=bf62be47646565c8d9b9644cd00be372&q=${city}`
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         setWeatherData(data);
       })
       .catch((err) => console.log("Error: " + err));
-
-    
   };
   return (
-    <CountriesContext.Provider value={{ data, setData, getAllCountriesData,weatherData,setWeatherData,getWeatherData }}>
+    <CountriesContext.Provider
+      value={{
+        data,
+        setData,
+        currentCountry,
+        setCurrentCountry,
+        weatherData,
+        setWeatherData,
+        getAllCountriesData,
+        weatherData,
+        setWeatherData,
+        getWeatherData,
+      }}
+    >
       {children}
     </CountriesContext.Provider>
   );
 }
-
-
 
 //custom hooks
 export const useCountriesContext = () => useContext(CountriesContext);

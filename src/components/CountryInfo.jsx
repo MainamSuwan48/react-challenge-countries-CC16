@@ -1,16 +1,16 @@
 import React from "react";
 import { useCountriesContext } from "../context/CountriesContext";
 function CountryInfo() {
-  const { data } = useCountriesContext();
+  const { data ,currentCountry} = useCountriesContext();
   return (
     <div className="country-info">
       {data ? (
         <>
-          <h1>{data[225].name.common}</h1>
-          <p>Capital : {data[225].capital}</p>
-          <p>Population : {data[225].population}</p>
-          <p>Currency : {Object.keys(data[225].currencies)}</p>
-          <p>Continent :{data[225].continents}</p>
+          <h1>{currentCountry.country}</h1>
+          <p>Capital : {currentCountry.capital}</p>
+          <p>Populations : {currentCountry.populations}</p>
+          <p>Currency : {currentCountry.currency}</p>
+          <p>Continent :{currentCountry.continent}</p>
         </>
       ) : null}
     </div>
