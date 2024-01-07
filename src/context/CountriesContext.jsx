@@ -24,7 +24,7 @@ export default function CountriesContextProvider({ children }) {
 
   const getWeatherData = (city = "bangkok") => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?appid=bf62be47646565c8d9b9644cd00be372&q=${city}`
+      `https://api.openweathermap.org/data/2.5/weather?appid=bf62be47646565c8d9b9644cd00be372&q=${city}&units=metric`
     )
       .then((res) => res.json())
       .then((data) => {

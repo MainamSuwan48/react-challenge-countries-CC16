@@ -9,14 +9,14 @@ function Flags() {
       {data
         ? data.map((flag, index) => (
             <Flag
-              key={index}
-              id={index}
+              key={index}              
               flagUrl={flag.flags.png}
               name={flag.name.common}
               capital={flag.capital}
               population={flag.population}
               currency={flag.currencies}
               continent={flag.continents}
+              latlng={flag.latlng}
             />
           ))
         : null}

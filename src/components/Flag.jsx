@@ -1,9 +1,18 @@
 import React from "react";
 import { useCountriesContext } from "../context/CountriesContext";
 
-function Flag({ flagUrl, id, name, capital, population, currency, continent }) {
-  const { setCurrentCountry } = useCountriesContext();
+function Flag({
+  flagUrl,
+  name,
+  capital,
+  population,
+  currency,
+  continent,
+  latlng,
+}) {
+  const { setCurrentCountry, getWeatherData } = useCountriesContext();
   const updateCurrentCountry = () => {
+    console.log(latlng);
     let newCountry = {
       country: name,
       capital: capital.toString(),
@@ -15,7 +24,13 @@ function Flag({ flagUrl, id, name, capital, population, currency, continent }) {
   };
   return (
     <div className="flag">
-      <img src={flagUrl} onClick={() => updateCurrentCountry()}></img>
+      <img
+        src={flagUrl}
+        onClick={() => {
+          updateCurrentCountry();
+          getWeatherData(capital);
+        }}
+      ></img>
     </div>
   );
 }
