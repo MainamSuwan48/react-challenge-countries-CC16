@@ -10,9 +10,9 @@ function Flag({
   continent,
   latlng,
 }) {
-  const { setCurrentCountry, getWeatherData } = useCountriesContext();
+  const { setCurrentCountry, getWeatherData, setCurrentLatLong } =
+    useCountriesContext();
   const updateCurrentCountry = () => {
-    console.log(latlng);
     let newCountry = {
       country: name,
       capital: capital.toString(),
@@ -29,6 +29,7 @@ function Flag({
         onClick={() => {
           updateCurrentCountry();
           getWeatherData(capital);
+          setCurrentLatLong(latlng);
         }}
       ></img>
     </div>
